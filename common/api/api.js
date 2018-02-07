@@ -35,6 +35,7 @@ export function getNetworkInfo(origin) {
 }
 
 export function getMemPool(limit = 10) {
+    console.log(" the value is : " + getNode())
     return axios.get(`${getNode()}/api/mempool?limit=${limit}`);
 }
 

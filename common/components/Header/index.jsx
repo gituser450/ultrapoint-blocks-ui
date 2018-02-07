@@ -30,11 +30,12 @@ function handleBadSearch(text = "No results found :(") {
 
 
 function makeThenSetSelectedNodeAndNodeOptions() {
-    const defaultNodeOption = "http://127.0.0.1:8081"
+    const defaultNodeOption = "http://104.219.251.190:8081"
     store.set('nodeSettings', {
         nodeOptions: [defaultNodeOption],
         selectedNode: defaultNodeOption
     })
+    console.log("The default node option is : " + defaultNodeOption + " And the value of the function getNode is" + getNode())
     return defaultNodeOption
 }
 
@@ -151,8 +152,8 @@ export default class Header extends Component {
                     paddingRight: '2.3em',
                 }} fixed={false}>
                     <Link to="/" style={{color: 'black', textDecoration: 'none'}}>
-                        <Title style="">
-                            UltrapoinChain<div style={{color: 'white'}}>beta</div>
+                        <Title style={{ color: 'white'}}>
+                            UltrapoinChain<div style={{color: 'silver'}}>beta</div>
                         </Title>
                     </Link>
                     <Box flex={true}
@@ -175,7 +176,7 @@ export default class Header extends Component {
                                 this.state.nodeOptions.map((e, i) => {
                                     return (
                                         <Anchor key={i} onClick={() => this.handleNodeSelect(e)}>
-                                            
+                                            {e}
                                         </Anchor>
                                     )
                                 })

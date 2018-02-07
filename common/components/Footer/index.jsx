@@ -17,7 +17,7 @@ export default class Footer extends Component {
                     <Box direction='row'
                          pad={{"between": "medium"}}>
                         <Paragraph margin='none'>
-                            © 2017 UltrapoinChain
+                            © 2018 UltrapoinChain
                         </Paragraph>
                         <a href="https://github.com/ultrapoint/ultrapoinchain.git" target="_blank">
                             <i className="fa fa-github" aria-hidden="true"></i> Source on GitHub
