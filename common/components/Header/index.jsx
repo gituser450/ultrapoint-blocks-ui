@@ -153,7 +153,7 @@ export default class Header extends Component {
                 }} fixed={false}>
                     <Link to="/" style={{color: 'black', textDecoration: 'none'}}>
                         <Title style={{ color: 'white'}}>
-                            ultrapointtChain<div style={{color: 'silver'}}>beta</div>
+                            ultrapointChain<div style={{color: 'silver'}}>beta</div>
                         </Title>
                     </Link>
                     <Box flex={true}

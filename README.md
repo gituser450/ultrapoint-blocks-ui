@@ -1,6 +1,6 @@
-# ultrapointtChain
+# ultrapointChain
 
-![ultrapointtChain]("ultrapointtChain")
+![ultrapointChain]("ultrapointChain")
 
 
 #### Run:
