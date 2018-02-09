@@ -3,7 +3,7 @@ const path = require('path')
 
 module.exports = {
   port: 8090,
-  title: 'UltrapoinChain',
+  title: 'ultrapointtChain',
   publicPath:  '/',
   srcPath: path.join(__dirname, './../common'),
   // add these dependencies to a standalone vendor bundle

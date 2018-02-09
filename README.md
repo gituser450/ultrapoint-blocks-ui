@@ -1,6 +1,6 @@
-# UltrapoinChain
+# ultrapointtChain
 
-![UltrapoinChain](http://imgur.com/Urs1Jgi.png "UltrapoinChain")
+![ultrapointtChain](http://imgur.com/Urs1Jgi.png "ultrapointtChain")
 
 
 #### Run:
