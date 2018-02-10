@@ -1,0 +1,10 @@
+
+.toastify__close {
+    height: 88% !important;
+}
+.grommetux-menu--labelled .grommetux-button {
+    color: #f0e992;
+}
+.grommet .ReactTable .-pagination .-pageJump input:not(.grommetux-input):not(.grommetux-check-box__input) {
+    padding: 5px 7px;
+}

@@ -10,7 +10,7 @@ import FormFields from "grommet/components/FormFields";
 import store from "store2";
 import {Link} from "react-router";
 import {toast, ToastContainer} from "react-toastify";
-import "./toastifyExtensions.css";
+import "./customAdjustments.css";
 import "react-toastify/dist/ReactToastify.min.css";
 
 
@@ -152,8 +152,9 @@ export default class Header extends Component {
                     paddingRight: '2.3em',
                 }} fixed={false}>
                     <Link to="/" style={{color: 'black', textDecoration: 'none'}}>
-                        <Title style={{ color: 'white'}}>
-                            ultrapointChain<div style={{color: 'silver'}}>beta</div>
+                        <Title style={{ color: 'white', fontSize: '1.3em'}}>
+                            <div>ultrapoint blocks</div>
+                            <div style={{color: 'silver', fontSize: '0.75em'}}>lite [beta]</div>
                         </Title>
                     </Link>
                     <Box flex={true}
@@ -171,7 +172,7 @@ export default class Header extends Component {
                             size='medium'
                             placeHolder='Search by block height, tx hash, or block hash'
                             dropAlign={{"right": "right"}}/>
-                        <Menu responsive={true} label='Nodes' closeOnClick={false}>
+                        <Menu responsive={true} label='Nodes' closeOnClick={false} style={{ color: 'white' }}>
                             {
                                 this.state.nodeOptions.map((e, i) => {
                                     return (
