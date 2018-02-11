@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import "react-table/react-table.css";
-import {buildColumnFromObject, makeDataWithExcludedPropertiesAndFilterBasedOnProperties} from "utils/tableHelpers";
+import {formatUPXColumns, formatAmountFromData, buildColumnFromObject, makeDataWithExcludedPropertiesAndFilterBasedOnProperties} from "utils/tableHelpers";
 import {TransactionInfo} from "./TransactionInfoComponent";
 import {searchBlockchain} from "api/api";
 import ReactTable from "react-table";
@@ -84,14 +84,14 @@ export default class TransactionDetailComponent extends Component {
             nextState.data = data.data.data
             nextState.loading = false
 
-            nextState.otherColumns = buildColumnFromObject(nextState.data, [], customRender)
-            nextState.otherData = makeDataWithExcludedPropertiesAndFilterBasedOnProperties([nextState.data])
+            nextState.otherColumns = formatUPXColumns(buildColumnFromObject(nextState.data, [], customRender))
+            nextState.otherData = formatAmountFromData(makeDataWithExcludedPropertiesAndFilterBasedOnProperties([nextState.data]))
 
-            nextState.outputsColumns = buildColumnFromObject(nextState.data.outputs[0], [], otherCustomRender)
-            nextState.outputsData = makeDataWithExcludedPropertiesAndFilterBasedOnProperties(nextState.data.outputs)
+            nextState.outputsColumns = formatUPXColumns(buildColumnFromObject(nextState.data.outputs[0], [], otherCustomRender))
+            nextState.outputsData = formatAmountFromData(makeDataWithExcludedPropertiesAndFilterBasedOnProperties(nextState.data.outputs))
 
-            nextState.inputsColumns = nextState.data.inputs ? buildColumnFromObject(nextState.data.inputs[0], [], otherCustomRender) : []
-            nextState.inputsData = nextState.data.inputs ? makeDataWithExcludedPropertiesAndFilterBasedOnProperties(nextState.data.inputs) : []
+            nextState.inputsColumns = nextState.data.inputs ? formatUPXColumns(buildColumnFromObject(nextState.data.inputs[0], [], otherCustomRender)) : []
+            nextState.inputsData = nextState.data.inputs ? formatAmountFromData(makeDataWithExcludedPropertiesAndFilterBasedOnProperties(nextState.data.inputs)) : []
 
             this.setState(nextState)
         })

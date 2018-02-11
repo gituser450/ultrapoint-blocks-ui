@@ -2,6 +2,8 @@ import React, {Component} from "react";
 import {
     buildColumnFromObject,
     formatBytes,
+    formatUPXColumns,
+    formatAmountFromData,
     makeDataWithExcludedPropertiesAndFilterBasedOnProperties
 } from "utils/tableHelpers";
 import {Link} from "react-router";
@@ -76,8 +78,8 @@ export default class LatestBlocksComponent extends Component {
         const excludedFields = ["coinbase", "timestamp"]
         nextState.latestBlocks = data.data.data.blocks
         nextState.totalPages = data.data.data.total_page_no;
-        nextState.columns = buildColumnFromObject(nextState.latestBlocks[0], excludedFields, customRender)
-        nextState.data = makeDataWithExcludedPropertiesAndFilterBasedOnProperties(nextState.latestBlocks, excludedFields)
+        nextState.columns = formatUPXColumns(buildColumnFromObject(nextState.latestBlocks[0], excludedFields, customRender))
+        nextState.data = formatAmountFromData(makeDataWithExcludedPropertiesAndFilterBasedOnProperties(nextState.latestBlocks, excludedFields))
         nextState.loading = false;
         nextState.currentPage = data.data.data.page
         nextState.tableLoading = false

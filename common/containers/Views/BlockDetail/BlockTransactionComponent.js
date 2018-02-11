@@ -4,6 +4,8 @@ import "react-table/react-table.css";
 import {
     buildColumnFromObject,
     formatFee,
+    formatUPXColumns,
+    formatAmountFromData,
     makeDataWithExcludedPropertiesAndFilterBasedOnProperties,
     formatBytes,
     makeDataWithExcludedPropertiesAndIncludeBasedOnProperties
@@ -73,10 +75,10 @@ export default class BlockTransactionComponent extends Component {
             }
 
             nextState.block = propsBlock
-            nextState.columns = buildColumnFromObject(nextState.block.txs[0], ["coinbase", "payment_id8"], customTransactionColumn)
-            nextState.data = makeDataWithExcludedPropertiesAndFilterBasedOnProperties(nextState.block.txs, ["coinbase", "payment_id8"], ['coinbase'])
-            nextState.coinbaseColumns = buildColumnFromObject(nextState.block.txs[0], coinbaseExcludes, customTransactionColumn)
-            nextState.coinbaseData = makeDataWithExcludedPropertiesAndIncludeBasedOnProperties(nextState.block.txs, coinbaseExcludes, ['coinbase'])
+            nextState.columns = formatUPXColumns(buildColumnFromObject(nextState.block.txs[0], ["coinbase", "payment_id8"], customTransactionColumn))
+            nextState.data = formatAmountFromData(makeDataWithExcludedPropertiesAndFilterBasedOnProperties(nextState.block.txs, ["coinbase", "payment_id8"], ['coinbase']))
+            nextState.coinbaseColumns = formatUPXColumns(buildColumnFromObject(nextState.block.txs[0], coinbaseExcludes, customTransactionColumn))
+            nextState.coinbaseData = formatAmountFromData(makeDataWithExcludedPropertiesAndIncludeBasedOnProperties(nextState.block.txs, coinbaseExcludes, ['coinbase']))       
             nextState.coinbasePageSize = nextState.coinbaseData.length
             nextState.loading = false
             this.setState(nextState)

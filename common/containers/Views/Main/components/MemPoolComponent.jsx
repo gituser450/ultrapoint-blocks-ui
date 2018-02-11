@@ -3,6 +3,8 @@ import {
     buildColumnFromObject,
     formatBytes,
     formatFee,
+    formatUPXColumns,
+    formatAmountFromData,
     makeDataWithExcludedPropertiesAndFilterBasedOnProperties
 } from "utils/tableHelpers";
 import {Link} from "react-router";
@@ -55,7 +57,7 @@ export default class MemPoolComponent extends Component {
                     minWidth: 550
                 },
 
-                xmr_outputs: {
+                upx_outputs: {
                     minWidth: 70
                 },
 
@@ -63,7 +65,7 @@ export default class MemPoolComponent extends Component {
                     minWidth: 70
                 },
 
-                xmr_inputs: {
+                upx_inputs: {
                     minWidth: 70
                 },
 
@@ -88,8 +90,8 @@ export default class MemPoolComponent extends Component {
                     minWidth: 80
                 }
             }
-            nextState.columns = buildColumnFromObject(nextState.mempool[0], excludedFields, customRender)
-            nextState.data = makeDataWithExcludedPropertiesAndFilterBasedOnProperties(nextState.mempool, excludedFields)
+            nextState.columns = formatUPXColumns(buildColumnFromObject(nextState.mempool[0], excludedFields, customRender))
+            nextState.data = formatAmountFromData(makeDataWithExcludedPropertiesAndFilterBasedOnProperties(nextState.mempool, excludedFields))
         }
         this.setState(nextState)
     }

@@ -15,8 +15,42 @@ export function formatBytes(a, b) {
 
 
 export const formatFee = (input) => {
-    return parseFloat(String(input / 1000000000000).substring(0, 5))
+    return parseFloat(String(input / Math.pow(10, 9)).substring(0, 5));
 
+}
+
+export const formatAmount = (input) => {
+    return input / Math.pow(10, 9);
+
+}
+
+export const formatAmountFromData = (ouputs) => {
+    let outputCopies = [];
+    for (let i = 0, limit = ouputs.length; i < limit; i++) {
+        outputCopies.push(Object.assign({}, ouputs[i]));
+        if (outputCopies[i].amount) outputCopies[i].amount = formatAmount(outputCopies[i].amount);
+        if (outputCopies[i].xmr_outputs) {
+            outputCopies[i].upx_outputs = formatAmount(outputCopies[i].xmr_outputs);
+            delete outputCopies[i].xmr_outputs;
+        }
+        if (outputCopies[i].xmr_inputs) {
+            outputCopies[i].upx_inputs = formatAmount(outputCopies[i].xmr_inputs);
+            delete outputCopies[i].xmr_inputs;
+        }
+    }
+
+    return outputCopies;
+}
+
+export const formatUPXColumns = (columns) => {
+    let columnCopies = [];
+    for (let i = 0, limit = columns.length; i < limit; i++) {
+        columnCopies.push(Object.assign({}, columns[i]));
+        if (columnCopies[i].header === 'xmr_outputs') columnCopies[i].header = columnCopies[i].accessor = 'upx_outputs';
+        if (columnCopies[i].header === 'xmr_inputs') columnCopies[i].header = columnCopies[i].accessor = 'upx_inputs';
+    }
+
+    return columnCopies;
 }
 
 export const removeObjectProperties = function (obj, props) {
