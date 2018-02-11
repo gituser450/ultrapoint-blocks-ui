@@ -1,6 +1,6 @@
-# ultrapointChain
+# ultrapoint-blocks-ui
 
-![ultrapointChain]("ultrapointChain")
+![ultrapoint-blocks-ui]("ultrapoint-blocks-ui")
 
 
 #### Run:
