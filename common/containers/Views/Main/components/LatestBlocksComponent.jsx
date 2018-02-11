@@ -123,7 +123,7 @@ export default class LatestBlocksComponent extends Component {
                             number={5}
                             diameter={70}
                             duration={150}
-                            activeColor="orange"
+                            activeColor="yellow"
                             borderColor="white"
                             borderWidth={10}
                             borderRadius="80%"
