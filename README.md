@@ -1,8 +1,5 @@
 # ultrapoint-blocks-ui
 
-![ultrapoint-blocks-ui]("ultrapoint-blocks-ui")
-
-
 #### Run:
 
 ```bash
